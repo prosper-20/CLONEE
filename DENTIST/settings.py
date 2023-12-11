@@ -76,11 +76,22 @@ WSGI_APPLICATION = 'DENTIST.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+   'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'railway',       # Replace with your PostgreSQL database name
+        'USER': 'postgres',       # Replace with your PostgreSQL database user
+        'PASSWORD': config('PGPASSWORD'), # Replace with your PostgreSQL database password
+        'HOST': config('PGHOST'),                      # Replace with your PostgreSQL host
+        'PORT': config('PGPORT'),                               # Leave empty to use the default PostgreSQL port (5432)
+    },
 }
 
 
